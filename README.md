@@ -14,6 +14,8 @@ Build
 
   ### DockerHub
 
+  https://hub.docker.com/repository/docker/jansouza/jenkins-kube
+
   ```
   docker build -t jansouza/jenkins-kube .
   docker push jansouza/jenkins-kube:latest
