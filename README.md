@@ -1,6 +1,8 @@
 Jenkins - Pipeline for Kubernetes on IBM Cloud
 =========
 
+[![Docker Image CI](https://github.com/jansouza/jenkins-kube/actions/workflows/docker-image.yml/badge.svg)](https://github.com/jansouza/jenkins-kube/actions/workflows/docker-image.yml)
+
 Build
 --------------
 
