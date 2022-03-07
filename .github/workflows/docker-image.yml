@@ -13,17 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
 
-    - name: docker login
-      env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - uses: actions/checkout@v2
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag jansouza/jenkins-kube:$(date +%s)
+      - name: Docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-    - name: Docker Push
-      run: docker push jansouza/jenkins-kube
+      - name: Build the Docker image
+        env:
+          BUILD_VERSION: $(date +%s)
+        run: docker build . --file Dockerfile --tag jansouza/jenkins-kube:$BUILD_VERSION
+
+      - name: Docker Push
+        run: |
+          docker push jansouza/jenkins-kube:$BUILD_VERSION
