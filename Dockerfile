@@ -15,11 +15,11 @@ USER root
 ENV DOCKERVERSION=18.03.1-ce
 
 #IBM Client
-RUN curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
-RUN ibmcloud --version \
-  && ibmcloud config --check-version=false \
-  && ibmcloud plugin install -f kubernetes-service \
-  && ibmcloud plugin install -f container-registry
+#RUN curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+#RUN ibmcloud --version \
+#  && ibmcloud config --check-version=false \
+#  && ibmcloud plugin install -f kubernetes-service \
+#  && ibmcloud plugin install -f container-registry
 
 #Docker
 RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz \
