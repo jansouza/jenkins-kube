@@ -24,8 +24,10 @@ jobs:
 
       - name: Build the Docker image
         env:
-          BUILD_VERSION: $(date +%s)
-        run: docker build . --file Dockerfile --tag jansouza/jenkins-kube:$BUILD_VERSION
+          BUILD_VERSION: 
+        run: |
+          echo 'BUILD_VERSION=$(date +%s)' >> ${GITHUB_ENV}
+          docker build . --file Dockerfile --tag jansouza/jenkins-kube:$BUILD_VERSION
 
       - name: Docker Push
         run: |
