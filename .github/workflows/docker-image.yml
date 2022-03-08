@@ -32,3 +32,4 @@ jobs:
         run: |
           docker push jansouza/jenkins-kube:$BUILD_VERSION
           docker tag jansouza/jenkins-kube:$BUILD_VERSION jansouza/jenkins-kube:latest
+          docker push jansouza/jenkins-kube:latest
