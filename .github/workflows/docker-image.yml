@@ -23,8 +23,6 @@ jobs:
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: Build the Docker image
-        env:
-          BUILD_VERSION: 
         run: |
           echo 'BUILD_VERSION=$(date +%s)' >> ${GITHUB_ENV}
           docker build . --file Dockerfile --tag jansouza/jenkins-kube:$BUILD_VERSION
