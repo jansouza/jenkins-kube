@@ -20,3 +20,6 @@ workflow-aggregator:latest
 ws-cleanup:latest
 authorize-project:latest
 kubernetes-cd:latest
+maven-plugin:latest
+slack:latest
+prometheus:latest

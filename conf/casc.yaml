@@ -17,4 +17,21 @@ security:
     authenticators:
     - global:
         strategy: triggeringUsersAuthorizationStrategy
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - home: "/usr/lib/jvm/java-11-openjdk-amd64"
+      name: "openJDK11"
+  maven:
+    installations:
+    - home: "/usr/share/maven"
+      name: "mvn3"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"
+
 unclassified:

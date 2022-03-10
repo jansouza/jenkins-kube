@@ -10,7 +10,7 @@ Build
 
   ```
   docker build -t jenkins .
-  docker run -dit --name jenkins -p 32777:8080 -p 32776:50000 --env JENKINS_ADMIN_ID=admin --env JENKINS_ADMIN_PASSWORD=password jenkins
+  docker run -dit --name jenkins -p 32777:8080 -p 32776:50000 -v /var/run/docker.sock:/var/run/docker.sock --env JENKINS_ADMIN_ID=admin --env JENKINS_ADMIN_PASSWORD=password jenkins
 
   ```
 

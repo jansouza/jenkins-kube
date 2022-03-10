@@ -12,7 +12,8 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 USER root
 
-ENV DOCKERVERSION=18.03.1-ce
+# Install Maven
+RUN apt-get update && apt-get install -y maven
 
 #IBM Client
 RUN curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
@@ -22,6 +23,7 @@ RUN ibmcloud --version \
   && ibmcloud plugin install -f container-registry
 
 #Docker
+ENV DOCKERVERSION=18.03.1-ce
 RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz \
   && tar xzvf docker-${DOCKERVERSION}.tgz --strip 1 \
                  -C /usr/local/bin docker/docker \
